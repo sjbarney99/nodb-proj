@@ -18,15 +18,15 @@ class App extends Component {
  }
  updateChar = (id, name, birth_year) => {
      //.put('/api/characters/:id') endpoint and set the characters state to new data (ie res.data)
-     axios.put(`/api/characters/${id}`, {name, birth_year}).then(res => {this.setState({char: res.data})}).catch(console.log)
+     axios.put(`/api/charactersUpdate/${id}`, {name, birth_year}).then(res => {this.setState({char: res.data})}).catch(console.log)
  }
- deleteChar = (id) => {
+ deleteChar = (id) => { 
      //.delete('/api/characters/:id') endpoint and set the characters state to new data (ie res.data)
-     axios.delete(`/api/characters/${id}`).then(res => {this.setState({char: res.data})}).catch(console.log)
+     axios.delete(`/api/charactersDelete/${id}`).then(res => {this.setState({char: res.data})}).catch(error => console.log(error))
  }
  newChar = (name, birth_year) => {
      //.post('/api/characters') endpoint and set the characters state to new data (ie res.data)
-     axios.post('/api/characters',{name, birth_year}).then(res => {this.setState({char: res.data})}).catch(console.log)
+     axios.post('/api/charactersPost',{name, birth_year}).then(res => {this.setState({char: res.data})}).catch(console.log)
  }
  render(){
      const {char} = this.state;

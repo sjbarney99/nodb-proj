@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import "./Character.css"
 
 export default class Character extends Component {
    constructor(props) {
@@ -50,7 +51,7 @@ export default class Character extends Component {
                            <button className="cardButton" onClick={this.handleSwitch}>Edit</button>
 
                            {/*invoking deleteChar passing in id param*/}
-                           <button className="card-button" onClick={() => deleteChar(id)}>Delete</button>
+                           <button className="cardButton" onClick={() => deleteChar(id)}>Delete</button>
                        </div>
                    ) : (
                        <div>

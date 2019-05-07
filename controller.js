@@ -14,7 +14,7 @@ module.exports = {
            .catch(err => res.status(500).send(err));
        } else { //else just send characters
            res.status(200).send(char);
-       }
+       }    
    },
    updateChar: (req, res) => {
        const id = req.params
@@ -28,11 +28,9 @@ module.exports = {
        })
        res.status(200).send(char) //send character
    },
-   deleteChar: (res, req) => {
-       const id = req.params
-
-       let charIndex = char.findIndex(person => person.url.split('/')[5] == id); //find index of matching id
-       char.splice(charIndex, 1) //using splice remove that id
+   deleteChar: (req, res) => {
+    
+       char = char.filter(person => person.url.split('/')[5] !== req.params.id)
 
        res.status(200).send(char); //send character
    },
